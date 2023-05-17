@@ -1,0 +1,24 @@
+name: Coverage
+on:
+    push:
+        branches: ['test', 'dev']
+    pull_request:
+        type: [opened, reopened, synchronize, labeled, unlabeled]
+    workflow_dispatch:
+jobs:
+    Coverage-report:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: npm install
+            - uses: ArtiomTr/jest-coverage-report-action@v2
+              id: coverage
+              with:
+                  test-script: npm run coverage-test
+                  output: report-markdown
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  threshold: 95
+                  skip-step: install
+            - uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                  message: ${{ steps.coverage.outputs.report }}
