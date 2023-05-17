@@ -8,7 +8,7 @@ describe('APP should say "Hello World!"', () => {
     });
     test('should return 200', async () => {
         const res = await request(server).get("/")
-        expect(res.status).toBe(200);
+        expect(res.status).toBe(100);
         expect(res.body).toMatchObject({ message: `Hello World! Create bug` });
 
     });
