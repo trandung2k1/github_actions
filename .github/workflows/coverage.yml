@@ -15,6 +15,7 @@ jobs:
               id: coverage
               with:
                   test-script: npm run coverage-test
+                  annotations: none
                   output: report-markdown
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   threshold: 95
