@@ -1,0 +1,8 @@
+__test__
+.github
+.vscode
+dist
+coverage
+node_modules
+Dockerfile
+.gitignore
