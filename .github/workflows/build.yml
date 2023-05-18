@@ -1,7 +1,7 @@
 name: Running unit test
 on:
     push:
-        branches: ['test', 'dev']
+        branches: ['test']
     pull_request:
         type: [opened, reopened, synchronize, labeled, unlabeled]
         branches: ['test', 'dev']
